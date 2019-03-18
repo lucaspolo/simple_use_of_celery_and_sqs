@@ -18,5 +18,14 @@ task_queues = (
     ),
 )
 
+timezone = 'America/Sao_Paulo'
+
+beat_schedule = {
+    'agendado': {
+        'task': 'tasks.agendado',
+        'schedule': 10.0,
+    }
+}
+
 if __name__ == '__main__':
     print(BROKER_URL)

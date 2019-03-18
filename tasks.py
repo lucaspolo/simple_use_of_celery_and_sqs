@@ -14,3 +14,9 @@ app.config_from_object('celeryconfig')
 def add(x, y):
     return x + y
 
+
+@app.task(queue='test-celery')
+def agendado():
+    f = open('tasks.txt', 'a')
+    f.write('Execução agendada\n')
+    f.close()
